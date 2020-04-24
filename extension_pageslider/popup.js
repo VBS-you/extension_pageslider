@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (page>0) {
             
-        }else{page=1}
+        }else{page_num.value=page=1}
 
         if (1<=seq_num.value&&seq_num.value<=9) {
             

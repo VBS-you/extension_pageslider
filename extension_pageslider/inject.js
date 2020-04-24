@@ -1,7 +1,7 @@
 
-var timeadder = 0
-// var url = []
 
+// var url = []
+var    t=800
 
 
 
@@ -41,25 +41,47 @@ function goto(page=1,seq=1){
     tab_worn.click()
 
 
+
+
 if (page>1) {
     setTimeout(() => {
-        tab_page=document.querySelectorAll("li.number")[page-1]
-        tab_page.click()
-        }, t(2));
+
+        // page_inputbox=document.querySelectorAll("input.el-input__inner")[2]   
+        // if (page_inputbox.value!=page) {
+        // page_inputbox.value=page
+        // page_inputbox.select()
+        // right_arrow=document.querySelectorAll("i.el-icon.el-icon-arrow-right")[0]       
+        // right_arrow.dispatchEvent(new MouseEvent("mousedown"))
+        // }
+        right_arrow=document.querySelectorAll("i.el-icon.el-icon-arrow-right")[0]    
+
+        for (let index = 1; index < page; index++) {
+         
+                right_arrow.click()   
+        }
+
+
+
+
+
+        }, 2*t);
+        t=2*t
+}
+
     
+
+
+        setTimeout(() => {
+            btn_click = document.querySelectorAll("span.btn.bluefont")[seq-1]
+            btn_click.click()
+        
+        }, 2*t);   //4t-2t = 2t
+
+
+
 }
 
 
-// btn bluefont
-setTimeout(() => {
-    btn_click = document.querySelectorAll("span.btn.bluefont")[seq-1]
-    btn_click.click()
-
-}, t(2));
-
-
-}
-  //  url[index] = document.URL
 
 
 
@@ -69,10 +91,8 @@ setTimeout(() => {
 
 
 
-function t(seconds=1) {
 
-    timeadder += seconds * 1000
 
-    return timeadder
 
-}
+
+
