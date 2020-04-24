@@ -1,0 +1,26 @@
+{
+    "manifest_version": 2,
+  
+    "name": " PageSlider",
+    "description": "Used to auto swtich pages.  Written by D",
+    "version": "0.1.2",
+   
+  
+    "browser_action": {
+     "default_icon": "icon.png",
+     "default_popup": "popup.html"
+    },
+
+
+    "permissions": [
+     "tabs",
+     "activeTab",
+     "https://www.baichuanweb.com/",
+     "http://www.baichuanweb.com/"
+     ]
+
+     
+
+  }
+
+  

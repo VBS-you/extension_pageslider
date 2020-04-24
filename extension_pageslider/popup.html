@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Chrome Extension (改编自runoob.com)</title>
+<style type="text/css">
+
+
+
+
+
+
+
+  body {
+    margin: 15px;
+    white-space: nowrap;
+  }
+
+  h1 {
+    font-size: 30px;
+    text-align:center;
+  }
+
+  p {
+    font-size: 20px;
+    text-align:left;
+  }
+
+
+  
+
+  .right{
+    float: right;
+  }
+
+  .middle{
+    margin: auto;
+    width: 50%;
+    height: 40px;
+  }
+
+
+
+  .next{
+   
+    margin: auto;
+    width: 80px;
+    
+  }
+
+  .prev{
+   
+   margin: auto;
+   width: 80px;
+ }
+
+
+  .button {
+    
+    background-color: #e7e7e7; 
+    border: none;
+    color: black;
+    padding: 8px 12px;
+    text-align: right;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 3px;
+    cursor: pointer;
+}
+  #container {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
+<script src="popup.js"></script>
+
+
+
+</head>
+<body>
+ 
+<div style="width:230px">
+<h1>错题自动跳转</h1>
+<hr> 
+
+
+
+
+<br>
+  <div class=selector>
+    <button id="Reset">重置</button>
+    <label for="page_num">页码: </label>
+    <!-- <span class="value-button" id="page_decrease" onclick="decrease_page_Value()" value="Decrease Value">-</span> -->
+    <input name="页数" class="inputbox" type="number" id="page_num" value="1" min="1" max="99"size="3"/>
+    <!-- <span class="value-button" id="page_increase" onclick="increase_page_Value()" value="Increase Value">+</span> -->
+  
+ 
+  
+    <label for="seq_num" >题序:  </label>
+    <!-- <span class="value-button" id="seq_decrease" onclick="decrease_seq_Value()" value="Decrease Value">-</span> -->
+    <input name="题序" class="inputbox" type="number" id="seq_num" value="1" min="1" max="10" size="2"/>
+    <!-- <span class="value-button" id="seq_increase" onclick="increase_seq_Value()" value="Increase Value">+</span> -->
+   
+
+</div>
+<br>
+
+
+<!-- <div class=middle >
+
+  <button >
+    &lt 上一题
+  </button>
+  
+  <button >
+    下一题  &gt 
+  </button>
+  <br>
+<br>
+</div> -->
+
+
+<!-- <button id="reset">重置</button> -->
+<hr>
+<br>
+
+<div class="right">
+    <button class="button" id="start"  >跳转</button>
+</div>
+
+<br>
+<br>
+
+<br>
+
+
+
+
+
+
+
+
+
+
+</div>
+</body>
+</html>
