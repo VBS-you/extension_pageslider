@@ -78,8 +78,8 @@ if (page>1) {
                 if (btn_click!=null) {
                     btn_click.click()
                 }else{
-                    if (seq==10) {
-                        goto(page+1,1)
+                    if (seq==10||seq==9) {
+                        
                         chrome.runtime.sendMessage({
                             "message": "override",
                             "page":page,

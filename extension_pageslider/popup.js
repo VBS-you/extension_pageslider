@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
 
 
-        jumpto(page_num.value,seq_num.value)
+        jumpto()
 
         accumulate()
 
@@ -63,7 +63,10 @@ ResetButton.addEventListener('click', function() {
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 	if ("override" == request.message) {
-        accumulate(request.page,request.seq)
+        
+        jumpto()
+        accumulate()
+
 	}
 });
 
@@ -78,13 +81,14 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 
 function accumulate(page=page_num.value,seq=seq_num.value) {
     
+    seq=parseInt(seq)
     if (1<=seq&&seq<=9) {
             
         seq_num.value++
 
     }else{
         seq_num.value=1
-        page_num.value=page+1
+        page_num.value=parseInt(page) +1
     }
     
 
@@ -94,7 +98,7 @@ function accumulate(page=page_num.value,seq=seq_num.value) {
 
 
 
-function jumpto(page=1,seq=1) {
+function jumpto(page=page_num.value,seq=seq_num.value) {
     
     // Storage(page=page,)
 
