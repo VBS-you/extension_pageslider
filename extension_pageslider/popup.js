@@ -23,35 +23,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     
-    var checkPageButton = document.getElementById('start');
+    var StartButton = document.getElementById('start');
 
-    checkPageButton.addEventListener('click', function() {
+    StartButton.addEventListener('click', function() {
 
-        seq=seq_num.value=parseInt(seq_num.value)
-        page=page_num.value=parseInt(page_num.value)
+        seq_num.value=parseInt(seq_num.value)
+        page_num.value=parseInt(page_num.value)
 
-        if (page>0) {
-            
-        }else{page_num.value=page=1}
-
-        if (1<=seq_num.value&&seq_num.value<=9) {
-            
-            seq_num.value++
-
-        }else{
-            seq_num.value=1
-            page_num.value++
+        if (page_num.value<=0) {
+         page_num.value=1
         }
+
         
 
-        jumpto(page,seq)
+
+        jumpto(page_num.value,seq_num.value)
+
+        accumulate()
 
         localStorage.setItem("page", page_num.value);
         localStorage.setItem("seq", seq_num.value);     //    duplicated   ,   need modify
 
 
         
-}, false);
+}
+, false);
 
 
 
@@ -65,11 +61,35 @@ ResetButton.addEventListener('click', function() {
 
 }, false);
 
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+	if ("override" == request.message) {
+        accumulate(request.page,request.seq)
+	}
+});
+
+
+
+
+
 
 }, false);
 
 
 
+function accumulate(page=page_num.value,seq=seq_num.value) {
+    
+    if (1<=seq&&seq<=9) {
+            
+        seq_num.value++
+
+    }else{
+        seq_num.value=1
+        page_num.value=page+1
+    }
+    
+
+
+} 
 
 
 
@@ -85,8 +105,7 @@ function jumpto(page=1,seq=1) {
     chrome.tabs.executeScript(null, target_page) ; 
 
 
-    localStorage.setItem("page", page);
-    localStorage.setItem("seq", seq);    //    duplicated   ,   need modify
+
 
 
     code_inject = {file:"inject.js"}
@@ -116,7 +135,7 @@ setTimeout(() => {
 
 
 
-}, 2000);
+}, 1600);
     
 
 

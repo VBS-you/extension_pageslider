@@ -1,7 +1,7 @@
 
 
 // var url = []
-var    t=800
+var    t=600
 
 
 
@@ -65,7 +65,7 @@ if (page>1) {
 
 
         }, 2*t);
-        t=2*t
+        t=2.5*t
 }
 
     
@@ -73,9 +73,25 @@ if (page>1) {
 
         setTimeout(() => {
             btn_click = document.querySelectorAll("span.btn.bluefont")[seq-1]
-            btn_click.click()
+
+           
+                if (btn_click!=null) {
+                    btn_click.click()
+                }else{
+                    if (seq==10) {
+                        goto(page+1,1)
+                        chrome.runtime.sendMessage({
+                            "message": "override",
+                            "page":page,
+                            "seq":seq
+                        });
+                    }
+                }
+            
+
+            
         
-        }, 2*t);   //4t-2t = 2t
+        }, 2*t);   //page>1  then 5t-2t = 3t
 
 
 
