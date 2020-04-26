@@ -1,7 +1,7 @@
 
 
 // var url = []
-var    t=400
+var    t=300
 
 
 

@@ -43,6 +43,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         accumulate()   // ++ wait until click ?
 
+   
+
         localStorage.setItem("page", page_num.value);
         localStorage.setItem("seq", seq_num.value);     //    duplicated   ,   need modify
 
@@ -141,7 +143,7 @@ setTimeout(() => {
 
 
 
-}, 1400);
+}, 1200);
     
 
 
