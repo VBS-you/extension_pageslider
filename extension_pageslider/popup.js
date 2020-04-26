@@ -19,12 +19,12 @@ document.addEventListener('DOMContentLoaded', function() {
     seq_num.value=localStorage.getItem("seq")
     page_num.value=localStorage.getItem("page")
 
-
+    
 
 
     
     var StartButton = document.getElementById('start');
-
+    StartButton.focus()
     StartButton.addEventListener('click', function() {
 
         seq_num.value=parseInt(seq_num.value)
@@ -39,7 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         jumpto()
 
-        accumulate()
+
+
+        accumulate()   // ++ wait until click ?
 
         localStorage.setItem("page", page_num.value);
         localStorage.setItem("seq", seq_num.value);     //    duplicated   ,   need modify
@@ -139,7 +141,7 @@ setTimeout(() => {
 
 
 
-}, 1600);
+}, 1400);
     
 
 
