@@ -3,7 +3,7 @@
   
     "name": " PageSlider",
     "description": "Used to auto swtich pages.  Written by D",
-    "version": "0.3.9",
+    "version": "0.4.3",
    
   
     "browser_action": {

@@ -2,14 +2,23 @@
 
 var page_num
 var seq_num
-
+var month
 
 
 
 
 document.addEventListener('DOMContentLoaded', function() {
     
-    
+    // document.getElementById("Month").value
+
+    month=document.getElementById("Month")
+
+    month.addEventListener("blur",function () {        
+        localStorage.setItem("month", month.value);  
+    })
+
+    month.value=localStorage.getItem("month")
+
     
     
     page_num = document.getElementById("page_num")
@@ -118,7 +127,7 @@ function jumpto(page=page_num.value,seq=seq_num.value) {
 
     code_inject = {file:"inject.js"}
 
-setTimeout(() => {
+    setTimeout(() => {
    
     chrome.tabs.executeScript(null, code_inject,function () {
 
@@ -132,7 +141,8 @@ setTimeout(() => {
 
                 chrome.tabs.sendMessage(tabs[0].id, {
                     "page": page,
-                    "seq": seq
+                    "seq": seq,
+                    "month":month.value
                 });
             
         }

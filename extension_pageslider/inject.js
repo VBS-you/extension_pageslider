@@ -1,16 +1,23 @@
 
 
 // var url = []
-var    t=300
+var    timeadder=0
 
+function t(seconds=1) {
+
+    timeadder += seconds * 1000
+
+    return timeadder
+
+} 
 
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     page=request.page
     seq=request.seq
+    month=request.month
 
-
-    goto(page,seq)
+    goto(page,seq,month)
 
 });
 
@@ -26,19 +33,33 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 
 
 
+// document.querySelectorAll("i.el-input__icon.el-icon-date")[0].click();
+// document.querySelectorAll("a.cell")[12].click()
 
 
 
 
 
 
+function goto(page=1,seq=1,month="Default"){
 
-function goto(page=1,seq=1){
+    if (month!="Default") {
+        if (month=="Mar") {
+            
+            document.querySelectorAll("i.el-input__icon.el-icon-date")[0].click();
+            setTimeout(() => {
+                document.querySelectorAll("a.cell")[12].click()
+            }, t(0.5));
+            
+            t(0.5)
+        }
+    }
 
+    setTimeout(() => {
+        tab_worn = document.querySelectorAll("span.el-radio-button__inner")[3]
+        tab_worn.click()
+    }, t(0)); //included in "month default" if selection
 
-
-    tab_worn = document.querySelectorAll("span.el-radio-button__inner")[3]
-    tab_worn.click()
 
 
 
@@ -64,8 +85,8 @@ if (page>1) {
 
 
 
-        }, 2*t);
-        t=2.2*t
+        }, t(0.7));
+        t(0.4)
 }
 
     
@@ -91,7 +112,7 @@ if (page>1) {
 
             
         
-        }, 2*t);   //page>1  then 4.4t-2t = 2.4t
+        }, t(0.7));   //page>1  then 4.4t-2t = 2.4t
 
 
 
