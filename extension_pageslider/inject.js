@@ -17,7 +17,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     seq=request.seq
     month=request.month
 
-    goto(page,seq,month)
+    goto(page,seq,month)  // timeadder ==0?
 
 });
 
@@ -49,10 +49,20 @@ function goto(page=1,seq=1,month="Default"){
             document.querySelectorAll("i.el-input__icon.el-icon-date")[0].click();
             setTimeout(() => {
                 document.querySelectorAll("a.cell")[12].click()
-            }, t(0.5));
+            }, t(0.3));
             
             t(0.5)
         }
+        if (month=="Apr") {
+            
+            document.querySelectorAll("i.el-input__icon.el-icon-date")[0].click();
+            setTimeout(() => {
+                document.querySelectorAll("a.cell")[13].click()
+            }, t(0.3));
+            
+            t(0.5)
+        }
+
     }
 
     setTimeout(() => {

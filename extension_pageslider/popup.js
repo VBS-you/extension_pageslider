@@ -153,7 +153,7 @@ function jumpto(page=page_num.value,seq=seq_num.value) {
 
 
 
-}, 1200);
+}, 1100);
     
 
 
